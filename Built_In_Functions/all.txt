@@ -1,0 +1,6 @@
+all :
+return true if all args of iterable are Truthy!! (or if iterable is Empty)
+
+all([0,1,2,3]) #False
+
+all([num for num in [4,2,10,6,8] if num % 2 == 0])  #True
