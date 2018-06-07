@@ -6,6 +6,12 @@ class User:
 	@classmethod
 	def display_active_users(cls):
 		return f"There are currently {cls.active_users} active users"
+
+	@classmethod
+	def from_string(cls,data_str):
+		first_name,last_name,age = data_str.split(",")
+		return cls(first_name,last_name,int(age))
+
 	def __init__(self,first,last,age=23):
 		self.first_name = first
 		self.last_name = last
@@ -32,27 +38,13 @@ class User:
 		self.age += 1
 		return f"Happy {self.age}th Birthday,{self.first_name}"
 
-	# def say_hi():
-	# 	print("HELLO!!")
 
-user1 = User("Joe","Upperla",24)
-user2 = User("Sahithi","Khandavalli")
-user3 = User("Leela","Sundaram",79)
-print(f"Active Users : " +User.display_active_users())
+# user1 = User("Joe","Upperla",24)
+# user2 = User("Sahithi","Khandavalli")
+# user3 = User("Leela","Sundaram",79)
+# print(f"Active Users : " +User.display_active_users())
 
-# print(user1.first_name,user1.last_name)
-# print(user2.first_name,user2.age)
-
-# print(user3.likes("Aviyal"))
-# print(user1.likes("Shopping"))
-
-# print(user2.initials())
-# print(user3.initials())
-
-# print(user3.is_senior())
-# print(user2.age)
-# print(user1.birthday())
-# print(user1.age)
-# print(user1.logout())
-# print(f"Active Users Now : {User.active_users}")
-#user1.say_hi()  throws error as there is no self parameter in the function definition 
+manu = User.from_string("Manaswini,Kundeti,24")
+print(manu.first_name)
+print(manu.full_name())
+print(manu.birthday())
